@@ -39,5 +39,30 @@
             return false;
         }
         #endregion
+        #region static string Base64Encode(string plainText)
+        public static string Base64Encode(string plainText)
+        {
+            if (plainText == null)
+            {
+                return null;
+            }
+
+            byte[] plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+        #endregion
+
+        #region static string Base64Decode(string base64EncodedData)
+        public static string Base64Decode(string base64EncodedData)
+        {
+            if (base64EncodedData == null)
+            {
+                return null;
+            }
+
+            byte[] base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+        #endregion
     }
 }
